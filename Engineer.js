@@ -13,7 +13,7 @@ class Engineer extends Employee {
   getEmail() {
     return this.email;
   }
-  getGithub() {
+  getUsername() {
     return this.github;
   }
 }
