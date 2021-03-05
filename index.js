@@ -1,13 +1,13 @@
+const fs = require("fs");
+const inquirer = require("inquirer");
 const Manager = require("./Manager");
 const Engineer = require("./Engineer");
 const Intern = require("./Intern");
-const inquirer = require("inquirer");
-const fs = require("fs");
 const employees = [];
 
  //Mangers information
 function EmployeeProfile(){
-   inquirer.prompt([{   
+inquirer.prompt([{   
     type : "input",
     message: "what is your name?",
     name: "Managername",
