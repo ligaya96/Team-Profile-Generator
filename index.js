@@ -1,5 +1,5 @@
 const fs = require("fs");
-const inquirer = require("inquirer");
+const inquirer = require("inquirer")
 const Manager = require("./utils/Manager");
 const Engineer = require("./utils/Engineer");
 const Intern = require("./utils/Intern");
