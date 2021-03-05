@@ -1,4 +1,3 @@
-const { describe } = require("yargs");
 const Engineer = require("../Engineer");
 describe("Engineer class", () =>{
     it("Can set the name, Github, and email of the Engineer", () => {

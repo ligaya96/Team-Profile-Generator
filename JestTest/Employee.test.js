@@ -1,4 +1,3 @@
-const { expect, it } = require("@jest/globals");
 const Employee = require("../Employee");
 describe("Employee class",() => {
     it("can set the name, years of service, email",() => {
