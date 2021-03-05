@@ -8,8 +8,8 @@ class Employee {
     getName() {
         return this.name;
     }
-    getYearsofservice(){
-        return this.years;
+    getid() {
+        return this.id;
     }
     getEmail() {
         return this.email;

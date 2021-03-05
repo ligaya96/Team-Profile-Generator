@@ -1,21 +1,12 @@
 const Manager = require("./Manager");
-const Employee = require("./Employee");
 const Engineer = require("./Engineer");
 const Intern = require("./Intern");
 const inquirer = require("inquirer");
 const fs = require("fs");
-const util = require("util")
-const writefileAsync = util.promisify(fs.writeFile)
+const employees = [];
 
-function initApp() {
-    managerInfo();
-    engineerInfo();
-    internInfo();
-    employeeInfo();
-}
- //manager information
-function managerInfo(){
-     
+ //Mangers information
+function EmployeeProfile(){
    inquirer.prompt([{   
     type : "input",
     message: "what is your name?",
@@ -32,97 +23,119 @@ function managerInfo(){
       message: "what is your Email?",
   },
 
-  ])
+  ]).then(response => {
+      const manName = response.Managername;
+      const manId = response.managerid;
+      const manEmail = response.managerEmail;
+      const manager = new Manager(manName, manId, manEmail);
+      employees.push(manager);
+      console.log(manager);
+      engineerInfo();
+  })
 }
 // Engineer Information Prompts
 function engineerInfo(){
     inquirer.prompt([{
-        type: "input",
-        name: "Engineername",
-        message: "What is the Engineer name?",
+     type: "input",
+    name: "Engineername",
+    message: "What is the Engineer name?",
     },
     {
-        type: "input",
-        name: "Engineeremail",
-        message: "What is the Engineers Email?",
+    type: "input",
+    name: "Engineeremail",
+    message: "What is the Engineers Email?",
     },
     {
     type: "input",
     name: "Engineergithub",
     message: "what is the Engineer's Github Username?",
     },
-    {
-    type: "list",
-    message: "What is this persons role?",
-    name : "Egineername",
-    choices: [
-        "Engineer",
-        "Intern",
-        "Employee",
-    ]
-    },
-  
-])
+]).then(response => {
+    const engineName = response.Engineername;
+    const engineEmail = response.Engineeremail;
+    const engineGithub = response.Engineergithub;
+    const engineer = new Engineer(engineName, engineEmail, engineGithub);
+    employees.push(engineer);
+    console.log(engineer);
+    internInfo();
+})
 }
 //Interns Information Prompts
 function internInfo(){
     inquirer.prompt([{
-        type: "list",
-        name : "Internrole",
-        message: "What is this persons role?",
-        choices: [
-            "Engineer",
-            "Intern",
-            "Employee",
-        ]
-     },
-    {
        type: "input",
-        name: "Internname",
+        name: "Studentname",
         message: "What is Interns name?",
     },
     {
         type: "input",
-        name: "internemail",
-        message: "What is the Intern Email?",
+        name: "studentEmail",
+        message: "What is the Student Email?",
     },
     {
     type: "input",
     name: "School",
     message: "Which School does the Intern attend?",
     },
-  
-])
-}
-function employeeInfo(){
-    inquirer.prompt([{
+    {
         type: "list",
-        name : "Employeerole",
-        message: "What is this persons role?",
-        choices: [
-            "Engineer",
-            "Intern",
-            "Employee",
-        ]
-        },
-        {
-        type: "input",
-        name: "name",
-        message: "What is the Employee name?",
-    },
-    {
-        type: "input",
-        name: "email",
-        message: "What is the Employees Email?",
-    },
-    {
-    type: "input",
-    name: "years",
-    message: "How many years of service?",
-    },
+        message: "Would you like to add another employee?: ",
+        choices: ["Yes", "NO"],
+        name: "addingEmployee"
+    }
   
-])
-}
+]).then(response => {
+    const internName = response.Studentname;
+    const internEmail = response.studentEmail;
+    const internSchool = response.school;
+    const intern = new Intern(internName, internEmail, internSchool);
+    employees.push(intern);
+    console.log(intern);
+    if (addingEmployee === "Yes"){
+        EmployeeProfile();
+    } else if (addingEmployee === "NO") {
+        Empcards();
+    }
+})
+function Empcards() {
+    let employeeCards = "";
+    employees.forEach(employee => {
+        let employeeCard = employee.newEmployeeCard();
+        employeeCards += employeeCard;
+    });
 
-writeFileAsync("./index.html", );
-initApp();
+    let CreateHTML = `
+ <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/c502137733.js"></script>
+        <title>TEAM-Profile Gen</title>
+    </head>
+        <body>
+            <div class="container-fluid ">
+                <div class="row">
+                    <div class="col-12 jumbotron mb-3 team-heading">
+                        <h1 class="text-center">My Teammates!</h1>
+                    </div>
+                </div>
+             </div>
+        <div class = "container" style="padding-top: 5rem;"> 
+          <div class="card-columns justify-content-center">
+              ${employeeCards}
+            </div>
+        </div>
+     </body>
+   </html>`;
+    fs.writeFile("./dist/index.html", CreateHTML, (err)=> {
+        if (err) {
+            throw err;
+        }
+    });
+};
+};
+EmployeeProfile();
