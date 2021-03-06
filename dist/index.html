@@ -1,68 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEAM-Profile Gen</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/c502137733.js"></script>
-</head>
-    <body>
-        <div class="container-fluid ">
-            <div class="row">
-                <div class="col-12 jumbotron mb-3 team-heading">
-                    <h1 class="text-center">My Teammates!</h1>
-                </div>
-            </div>
-         </div>
-    <div class = "container" style="padding-top: 5rem;"> 
-      <div class="card-columns justify-content-center">
-            <!-- Manager information-->
-           <div class = "row">
-               <div class="card employee-card">
-                  <div class="card-header">
-                    <h2 class="card-title">Ligaya</h2>
-                     <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>Manager</h3>
-                   </div>
-                  <div class="card-body" id = manager>
-                     <ul class="list-group">
-                     <li class="list-group-item">ID:</li>
-                     <li class="list-group-item">Email: <a href="mailto:{{ email }}"></a></li>
-                     </ul>
-                  </div>
-                </div>
-            </div>
-            <div class = "row">
-                <!-- Intern card section-->
-                <div class="card employee-card">
-                   <div class="card-header">
-                     <h2 class="card-title">John</h2>
-                      <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>Intern</h3>
+
+ <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/c502137733.js"></script>
+        <title>TEAM-Profile Gen</title>
+    </head>
+        <body>
+            <div class="container-fluid ">
+                <div class="row">
+                    <div class="col-12 jumbotron mb-3 team-heading">
+                        <h1 class="text-center">My Teammates!</h1>
                     </div>
-                   <div class="card-body" id = Intern>
-                      <ul class="list-group">
-                      <li class="list-group-item">Email: <a href="mailto:{{ email }}">{{ email }}</a></li>
-                      <li class="list-group-item">School : UW </li>
-                      </ul>
-                   </div>
-                 </div>
+                </div>
              </div>
-             <div class = "row">
-                 <!-- Engineer card section-->
-                <div class="card employee-card">
-                   <div class="card-header">
-                     <h2 class="card-title">Sally</h2>
-                      <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>Engineer</h3>
-                    </div>
-                     <div class="card-body" id = Engineer>
-                      <ul class="list-group">
-                      <li class="list-group-item">Email: <a href="mailto:{{ email }}">{{ email }}</a></li>
-                      <li class="list-group-item">Github : {{Github username}} </li>
-                      </ul>
-                </div>
-              </div>
-      </div>
-   </div>
-  </body>
-</html>
+        <div class = "container" style="padding-top: 5rem;"> 
+          <div class="card-columns justify-content-center">
+              <div class="card">
+        <div class="card-header bg-info text-light">
+         <h3>ligays</h3>
+        <h5>Manager</h5>
+        </div>
+        <div class="card-body" style="background-color:Green;">
+        <ul class="list-group">
+        <li class="list-group-item">Id: asd</li>
+        <li class="list-group-item">Email: <a href="mailto:as">as</a></li>
+        </ul>
+        </div>
+        </div><div class="card">
+  <div class="card-header bg-info text-light">
+   <h3>sdf</h3>
+  <h5>Engineer</h5>
+  </div>
+  <div class="card-body" style="background-color: Green;">
+  <ul class="list-group">
+  <li class="list-group-item">Email: <a href="mailto:asd">asd</a></li>
+  <li class="list-group-item">Github: asd</li>
+  </ul>
+  </div>
+  </div><div class="card">
+        <div class="card-header bg-info text-light">
+         <h3>asd</h3>
+        <h5>Intern</h5>
+        </div>
+        <div class="card-body" style="background-color:Green;">
+        <ul class="list-group">
+        <li class="list-group-item">Email: <a href="mailto:asd">asd</a></li>
+        <li class="list-group-item">School: asd</li>
+        </ul>
+        </div>
+        </div>
+            </div>
+        </div>
+     </body>
+   </html>

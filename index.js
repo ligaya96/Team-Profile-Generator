@@ -26,7 +26,7 @@ inquirer.prompt([{
   ]).then(response => {
       const manName = response.Managername;
       const manId = response.managerid;
-      const manEmail = response.managerEmail;
+      const manEmail = response.manageremail;
       const manager = new Manager(manName, manId, manEmail);
       employees.push(manager);
       console.log(manager);
@@ -47,13 +47,13 @@ function engineerInfo(){
     },
     {
     type: "input",
-    name: "Engineergithub",
-    message: "what is the Engineer's Github Username?",
+    name: "Github",
+    message: "what is the Engineers Github Username?",
     },
 ]).then(response => {
     const engineName = response.Engineername;
     const engineEmail = response.Engineeremail;
-    const engineGithub = response.Engineergithub;
+    const engineGithub = response.Github;
     const engineer = new Engineer(engineName, engineEmail, engineGithub);
     employees.push(engineer);
     console.log(engineer);
@@ -65,17 +65,17 @@ function internInfo(){
     inquirer.prompt([{
        type: "input",
         name: "Studentname",
-        message: "What is Interns name?",
+        message: "What is the Interns name?",
     },
     {
         type: "input",
-        name: "studentEmail",
-        message: "What is the Student Email?",
+        name: "StudentEmail",
+        message: "What is the Interns Email?",
     },
     {
     type: "input",
     name: "School",
-    message: "Which School does the Intern attend?",
+    message: "What School does the Intern attend?",
     },
     {
         type: "list",
@@ -86,14 +86,15 @@ function internInfo(){
   
 ]).then(response => {
     const internName = response.Studentname;
-    const internEmail = response.studentEmail;
-    const internSchool = response.school;
+    const internEmail = response.StudentEmail;
+    const internSchool = response.School;
     const intern = new Intern(internName, internEmail, internSchool);
+    let Moreemployees = response.addingEmployee;
     employees.push(intern);
     console.log(intern);
-    if (addingEmployee === "Yes"){
+    if (Moreemployees === "Yes"){
         EmployeeProfile();
-    } else if (addingEmployee === "NO") {
+    } else if (Moreemployees === "NO") {
         Empcards();
     }
 })

@@ -14,5 +14,6 @@ This website is built to help managers take different employee profiles, which i
 </ul>
 
 # ScreenShot
-<!--<img src="pjpg" alt="Teamprofilescreenshot"> -->
+<img src="screenshot.png" alt="Teamprofilescreenshot">
+
 # Walkthrough
