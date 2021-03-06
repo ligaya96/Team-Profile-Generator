@@ -17,3 +17,4 @@ This website is built to help managers take different employee profiles, which i
 <img src="screenshot.png" alt="Teamprofilescreenshot">
 
 # Walkthrough
+<iframe src="https://drive.google.com/file/d/1yUEnuL_AlQc_d8qhdSUaMJgOV5Xxa9V3/preview" width="640" height="480"></iframe>
